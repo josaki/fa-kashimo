@@ -1,0 +1,87 @@
+/* ログイン画面 */
+.login { background: #f1f1f1; }
+#login h1 a {
+  background: url("./images/common/logo-hor.svg") no-repeat center center !important;
+  width: 100% !important;
+  height: 48px;
+  background-size: auto;
+}
+
+/* アップデート通知を非表示 */
+.update-nag { display: none; }
+
+
+/* サイド - ユーザーボックス
+*************************************************** */
+  #sidebar-item-li-user {
+    pointer-events: none;
+  }
+  .user_box {
+    position: relative;
+    text-align: center;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+  }
+  .user_box::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    width: calc(100% - 16px);
+    height: 1px;
+    background-color: rgba(255,255,255,.25);
+  }
+  .user_box .user_logo {
+    width: 80px;
+    height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    border: 1px solid #393e42;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(./images/common/logo-ver.svg);
+    background-size: 52%;
+    border-radius: 100%;
+    margin-bottom: 8px;
+  }
+  .user_box .user_name {
+    color: #fff;
+    font-size: 85%;
+    margin: 0;
+  }
+  .folded .user_box {
+    display: none;
+  }
+
+/* 交互に背景色を変更
+*************************************************** */
+  .acf-field-repeater > .acf-input > .acf-repeater > table > tbody > tr > .acf-row-handle {
+    color: #838789;
+  }
+  .acf-field-repeater > .acf-input > .acf-repeater > table > tbody > tr:nth-of-type(even) > .acf-row-handle {
+    background-color: #e8e8e8;
+  }
+  .acf-field-repeater .acf-field-repeater > .acf-input > .acf-repeater > table > tbody > tr > .acf-row-handle {
+    background-color: #909395;
+    color: #fff;
+  }
+  .acf-field-repeater .acf-field-repeater > .acf-input > .acf-repeater > table > tbody > tr:nth-of-type(even) > .acf-row-handle {
+    background-color: #71767b;
+  }
+  .acf-field-repeater .acf-field-repeater .acf-field-repeater > .acf-input > .acf-repeater > table > tbody > tr > .acf-row-handle {
+    background-color: #51585d;
+    color: #fff;
+  }
+  .acf-field-repeater .acf-field-repeater .acf-field-repeater > .acf-input > .acf-repeater > table > tbody > tr:nth-of-type(even) > .acf-row-handle {
+    background-color: #353c40;
+  }
+
+/* セクション管理画面スタイル
+*************************************************** */
+  .acf-accordion .acf-accordion-title {
+    background-color: #f3f4f5;
+  }
+  .acf-accordion .acf-accordion-title:hover {
+    background-color: #f8f8f8 !important;
+  }

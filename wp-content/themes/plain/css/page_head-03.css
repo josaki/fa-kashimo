@@ -1,0 +1,109 @@
+/* ##############################################################################
+
+    PAGEHEAD - 03
+
+############################################################################## */
+
+  @keyframes marquee-left {
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .page_head {
+    padding-top: 80px;
+  }
+  .page_head .inner {
+    padding-top: 80px;
+  }
+  .page_head .txt_area .page_ttl {
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .page_head .txt_area .page_ttl-jp,
+  .page_head .txt_area .page_ttl-en span {
+    line-height: 1em;
+  }
+  .page_head .txt_area .page_ttl-jp {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    z-index: 1;
+    font-size: 373%;
+  }
+  .page_head .txt_area .page_ttl-en {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50vw);
+    display: flex;
+    width: 100vw;
+    list-style: none;
+    padding-inline: 0;
+    margin-inline: 0;
+    gap: 0;
+    overflow: hidden;
+  }
+  .page_head .txt_area .page_ttl-en span {
+    font-size: 1666%;
+    font-weight: 100;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 0 .25em 0 0;
+    margin: 0;
+    animation: marquee-left 80s linear infinite;
+    opacity: .05;
+  }
+  .page_head #breadcrumbs {
+    margin-top: 56px;
+  }
+  @media (max-width: 1280px) {
+    .page_head .inner {
+      padding-top: 64px;
+    }
+    .page_head .txt_area .page_ttl {
+      margin-bottom: 20px;
+    }
+    .page_head .txt_area .page_ttl-jp {
+      font-size: 300%;
+    }
+    .page_head .txt_area .page_ttl-en span {
+      font-size: 1200%;
+    }
+    .page_head #breadcrumbs {
+      margin-top: 40px;
+    }
+  }
+  @media (max-width: 1064px) {
+    .page_head .inner {
+      padding-top: 40px;
+    }
+    .page_head .txt_area .page_ttl {
+      margin-bottom: 16px;
+    }
+    .page_head .txt_area .page_ttl-jp {
+      font-size: 240%;
+    }
+    .page_head .txt_area .page_ttl-en span {
+      font-size: 900%;
+    }
+    .page_head #breadcrumbs {
+      margin-top: 32px;
+    }
+  }
+  @media (max-width: 560px) {
+    .page_head .inner {
+      padding-top: 16px;
+    }
+    .page_head .txt_area .page_ttl {
+      margin-bottom: 12px;
+    }
+    .page_head .txt_area .page_ttl-jp {
+      font-size: 188%;
+    }
+    .page_head .txt_area .page_ttl-en span {
+      font-size: 700%;
+    }
+    .page_head #breadcrumbs {
+      margin-top: 24px;
+    }
+  }

@@ -1,0 +1,26 @@
+/* ##############################################################################
+
+    MEGAMENU - 03
+
+############################################################################## */
+  .megamenu {
+    left: 0;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    width: 100%;
+  }
+  .megamenu_list {
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  .megamenu_list--item {
+    width: calc(100% / 6 - 20px);
+  }
+  .megamenu_list--item .img_area {
+    width: 100%;
+    padding-top: 42.5%;
+    background-color: #f8f8f8;
+    margin-bottom: 8px;
+  }

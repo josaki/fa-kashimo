@@ -1,0 +1,104 @@
+/* ##############################################################################
+
+    PAGEHEAD - 05
+
+############################################################################## */
+
+  .page_head {
+    position: relative;
+    padding-top: calc(22vw + 80px);
+  }
+  .page_head .inner {
+    width: 100%;
+    max-width: 100%;
+  }
+  .page_head .txt_area {
+    padding-top: 56px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .page_head .txt_area .page_ttl {
+    row-gap: 20px;
+  }
+  .page_head .txt_area .page_ttl-jp,
+  .page_head .txt_area .page_ttl-en {
+    line-height: 1em;
+    text-align: right;
+  }
+  .page_head .txt_area .page_ttl-jp {
+    letter-spacing: .1em;
+    font-size: 320%;
+  }
+  .page_head .txt_area .page_ttl-en {
+    text-transform: uppercase;
+    letter-spacing: .3em;
+  }
+  .page_head .img_area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: calc(100% - 56px);
+  }
+  .page_head #breadcrumbs {
+    text-align: right;
+    margin-top: 24px;
+  }
+  @media (max-width: 1280px) {
+    .page_head .txt_area {
+      padding-top: 36px;
+      padding-left: 56px;
+      padding-right: 56px;
+    }
+    .page_head .txt_area .page_ttl {
+      row-gap: 16px;
+    }
+    .page_head .txt_area .page_ttl-jp {
+      font-size: 266%;
+    }
+    .page_head .img_area {
+      height: calc(100% - 48px);
+    }
+  }
+  @media (max-width: 1064px) {
+    .page_head .txt_area {
+      padding-top: 24px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .page_head .txt_area .page_ttl {
+      row-gap: 12px;
+    }
+    .page_head .txt_area .page_ttl-jp {
+      font-size: 213%;
+    }
+    .page_head .txt_area .page_ttl-en {
+      font-size: 93%;
+    }
+    .page_head .img_area {
+      height: calc(100% - 40px);
+    }
+  }
+  @media (max-width: 560px) {
+    .page_head .txt_area {
+      padding-top: 16px;
+      padding-left: 24px;
+      padding-right: 16px;
+    }
+    .page_head .txt_area .page_ttl {
+      row-gap: 12px;
+    }
+    .page_head .txt_area .page_ttl-jp {
+      font-size: 157%;
+    }
+    .page_head .txt_area .page_ttl-en {
+      font-size: 75%;
+    }
+    .page_head .img_area {
+      height: calc(100% - 32px);
+    }
+    .page_head #breadcrumbs {
+      margin-top: 16px;
+    }
+  }

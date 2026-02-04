@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* gnav
+*************************************************** */
+  .snav_list--item .img_area {
+    background: transparent;
+  }
+  .gnav_list--item:hover .gnav_sub {
+    pointer-events: none;
+  }
+  .gnav_list--item.is_show .gnav_sub {
+    pointer-events: all;
+  }

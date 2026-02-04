@@ -1,0 +1,104 @@
+/* ##############################################################################
+
+    PAGEHEAD - 07
+
+############################################################################## */
+
+  .page_head {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    position: relative;
+    height: 41.6666vw;
+    max-height: 800px;
+    padding-bottom: 144px;
+  }
+  .page_head .txt_area {
+    row-gap: 40px;
+  }
+  .page_head .txt_area .page_ttl {
+    row-gap: 20px;
+  }
+  .page_head .txt_area .page_ttl-jp,
+  .page_head .txt_area .page_ttl-en {
+    line-height: 1em;
+  }
+  .page_head .txt_area .page_ttl-jp {
+    letter-spacing: .3em;
+  }
+  .page_head .txt_area .page_ttl-en {
+    text-transform: uppercase;
+    font-size: 500%;
+    letter-spacing: .05em;
+  }
+  .page_head .txt_area.clr-wht a,
+  .page_head .txt_area.clr-wht svg {
+    color: #fff;
+    fill: #fff;
+  }
+  .page_head .img_area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
+  @media (max-width: 1920px) {
+    .page_head {
+      padding-bottom: 7.5vw;
+    }
+  }
+  @media (max-width: 1480px) {
+    .page_head .txt_area .page_ttl-en {
+      font-size: 400%;
+    }
+  }
+  @media (max-width: 1280px) {
+    .page_head .txt_area {
+      row-gap: 32px;
+    }
+    .page_head .txt_area .page_ttl {
+      row-gap: 16px;
+    }
+    .page_head .txt_area .page_ttl-en {
+      font-size: 300%;
+    }
+  }
+  @media (max-width: 1064px) {
+    .page_head {
+      height: 56.45vw;
+    }
+    .page_head .txt_area {
+      row-gap: 24px;
+    }
+    .page_head .txt_area .page_ttl {
+      row-gap: 12px;
+    }
+    .page_head .txt_area .page_ttl-en {
+      font-size: 250%;
+    }
+    .page_head .txt_area .page_ttl-jp {
+      font-size: 93%;
+    }
+  }
+  @media (max-width: 560px) {
+    .page_head {
+      height: 80vw;
+    }
+    .page_head .txt_area .page_ttl {
+      row-gap: 12px;
+    }
+    .page_head .txt_area .page_ttl-en {
+      font-size: 200%;
+    }
+    .page_head .txt_area .page_ttl-jp {
+      font-size: 88%;
+    }
+  }

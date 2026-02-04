@@ -1,0 +1,108 @@
+/* ##############################################################################
+
+    PAGEHEAD - 04
+
+############################################################################## */
+
+  .page_head {
+    padding-top: 80px;
+  }
+  .page_head .inner {
+    padding-top: 120px;
+  }
+  .page_head .txt_area {
+    order: 1;
+    row-gap: 32px;
+    column-gap: 96px;
+    width: 100%;
+    margin-bottom: 56px;
+  }
+  .page_head .txt_area .page_ttl {
+    row-gap: 24px;
+  }
+  .page_head .txt_area .page_ttl-en,
+  .page_head .txt_area .page_ttl-jp {
+    line-height: 1em;
+  }
+  .page_head .txt_area .page_ttl-en {
+    order: 1;
+    text-transform: uppercase;
+    font-size: 400%;
+  }
+  .page_head .txt_area .page_ttl-jp {
+    order: 2;
+    font-size: 108%;
+  }
+  .page_head .img_area {
+    position: relative;
+    left: 50%;
+    translate: -50% 0;
+    order: 2;
+    width: calc(100vw - 96px);
+    padding-top: 38%;
+  }
+  .page_head #breadcrumbs {
+    width: 100%;
+    text-align: right;
+  }
+  @media (max-width: 1480px) {
+    .page_head .img_area {
+      width: calc(100vw - 64px);
+    }
+  }
+  @media (max-width: 1280px) {
+    .page_head .txt_area {
+      column-gap: 64px;
+    }
+    .page_head .txt_area .page_ttl-en {
+      font-size: 320%;
+    }
+  }
+  @media (max-width: 1064px) {
+    .page_head .inner {
+      padding-top: 64px;
+    }
+    .page_head .txt_area {
+      row-gap: 28px;
+      margin-bottom: 48px;
+      -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+    }
+    .page_head .txt_area .page_ttl {
+      row-gap: 20px;
+    }
+    .page_head .txt_area .page_ttl-en {
+      font-size: 280%;
+    }
+    .page_head .img_area {
+      padding-top: 40%;
+      width: calc(100vw - 48px);
+    }
+    .page_head #breadcrumbs {
+      text-align: left;
+    }
+  }
+  @media (max-width: 560px) {
+    .page_head .inner {
+      padding-top: 24px;
+    }
+    .page_head .txt_area {
+      row-gap: 24px;
+      margin-bottom: 32px;
+    }
+    .page_head .txt_area .page_ttl {
+      row-gap: 16px;
+    }
+    .page_head .txt_area .page_ttl-en {
+      font-size: 200%;
+    }
+    .page_head .txt_area .page_ttl-jp {
+      font-size: 88%;
+    }
+    .page_head .img_area {
+      padding-top: 45%;
+      width: 100vw;
+    }
+  }
+

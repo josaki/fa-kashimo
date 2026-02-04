@@ -1,0 +1,45 @@
+/* ##############################################################################
+
+    MEGAMENU - 02
+
+############################################################################## */
+  .megamenu {
+    left: 0;
+    width: 100%;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  .megamenu .inner {
+    max-width: 740px;
+    column-gap: 56px;
+  }
+  .megamenu_desc {
+    width: 320px;
+  }
+  .megamenu_desc .ttl a {
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .megamenu_desc .img_area {
+    width: 100%;
+    padding-top: 56.25%;
+    margin-bottom: 12px;
+  }
+  .megamenu_desc .img_area .bg_img {
+    background-color: #ccc;
+  }
+  .megamenu_list {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    gap: 12px;
+  }
+  .megamenu_list--item {
+    width: 100%;
+  }
+  .megamenu_list--item .ttl {
+    width: 100%;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
