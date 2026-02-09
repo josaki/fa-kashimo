@@ -7,6 +7,7 @@
 
 /* nav_list
 *************************************************** */
+  $themne_path = get_template_directory_uri();
   $nav_list = array(
     'home' => array(
       'type' => 'page',
@@ -14,74 +15,190 @@
       'desc' => false,
       'header' => true,  'footer' => true,
       'url' => LINK_HOME, 'other_page' => true, 'outlink' => false, 'smooth' => false,
-      'img_src' => 'https://placehold.jp/32/4c5162/ffffff/320x180.png?text=dummy',
+      'img_src' => '',
       'sub_nav' => false,
     ),
-    'test' => array(
+    'about' => array(
       'type' => 'page',
-      'label-jp' => 'メガメニュー', 'label-en' => 'MEGA MENU',
-      'desc' => false,
+      'label-jp' => '森林組合について', 'label-en' => 'About Kashimo Forestry',
+      'desc' => '森林を育て、守り、活かすことで<br>地域と暮らしを支える組合です。',
       'header' => true, 'footer' => true,
-      'url' => '/subpage/', 'other_page' => true, 'outlink' => false, 'smooth' => false,
-      'img_src' => 'https://placehold.jp/32/4c5162/ffffff/320x180.png?text=dummy',
+      'url' => LINK_ABOUT, 'other_page' => true, 'outlink' => false, 'smooth' => false,
+      'img_src' => $themne_path.'/images/common/gnav_img-about.webp',
       'sub_nav' => array(
-        'parent' => array(
-          'label' => 'メガメニュー',
-          'url' => '/subpage/', 'other_page' => true, 'outlink' => false,
+        'kashimo_forestry' => array(
+          'label' => '組合について',
+          'url' => LINK_ABOUT, 'other_page' => true, 'outlink' => false,
           'smooth' => false, 'belong' => '',
-          'img_src' => 'https://placehold.jp/32/4c5162/ffffff/494x210.png?text=dummy',
+          'img_src' => $themne_path.'/images/common/gnav_img-about-kashimo_forestry.webp',
+          'child_nav' => array(
+            'philosophy' => array(
+              'label' => '加子母森林組合の理念',
+              'url' => '#philosophy', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'about',
+            ),
+            'profile' => array(
+              'label' => '組合概要',
+              'url' => '#profile', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'about',
+            ),
+            'access' => array(
+              'label' => 'アクセス',
+              'url' => '#access', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'about',
+            ),
+          ),
         ),
-        'page_link' => array(
-          'label' => 'ページ内リンク',
-          'url' => '#link', 'other_page' => true, 'outlink' => false,
-          'smooth' => true, 'belong' => 'subpage',
-          'img_src' => 'https://placehold.jp/32/4c5162/ffffff/494x210.png?text=dummy',
-        ),
-        'outlink' => array(
-          'label' => '別ウィンドウで開く',
-          'url' => 'https://grow4happt.com', 'other_page' => true, 'outlink' => true,
-          'smooth' => false, 'belong' => false,
-          'img_src' => 'https://placehold.jp/32/4c5162/ffffff/494x210.png?text=dummy',
+        'member' => array(
+          'label' => '組合員のみなさまへ',
+          'url' => LINK_MEMBER, 'other_page' => true, 'outlink' => false,
+          'smooth' => false, 'belong' => '',
+          'img_src' => $themne_path.'/images/common/gnav_img-about-member.webp',
+          'child_nav' => array(
+            'forest' => array(
+              'label' => '山林に関するご相談',
+              'url' => '#forest', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'member',
+            ),
+            'inheritance' => array(
+              'label' => '相続に関するご相談',
+              'url' => '#inheritance', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'member',
+            ),
+            'contact' => array(
+              'label' => '組合員向けお問い合わせ',
+              'url' => '#contact', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'member',
+            ),
+          ),
         ),
       ),
     ),
-    'works' => array(
+    'workshop' => array(
       'type' => 'page',
-      'label-jp' => '事例紹介', 'label-en' => 'WORKS',
-      'desc' => false,
+      'label-jp' => '木工所について', 'label-en' => 'Wood Workshop',
+      'desc' => '加子母の木を使い、用途や使う人に<br>合わせた木製品を製作しています。',
       'header' => true, 'footer' => true,
-      'url' => '/works/', 'other_page' => true, 'outlink' => false, 'smooth' => false,
-      'img_src' => 'https://placehold.jp/32/4c5162/ffffff/320x180.png?text=dummy',
+      'url' => LINK_WORKSHOP, 'other_page' => true, 'outlink' => false, 'smooth' => false,
+      'img_src' => $themne_path.'/images/common/gnav_img-workshop.webp',
       'sub_nav' => array(
-        'category-1' => array(
-          'label' => '事例カテゴリ1',
-          'url' => '/works/category-1/', 'other_page' => true, 'outlink' => false,
+        'furniture' => array(
+          'label' => 'オーダーメイド家具',
+          'url' => LINK_FURNITURE, 'other_page' => true, 'outlink' => false,
           'smooth' => false, 'belong' => '',
-          'img_src' => 'https://placehold.jp/32/4c5162/ffffff/320x180.png?text=dummy',
+          'img_src' => $themne_path.'/images/common/gnav_img-workshop-furniture.webp',
+          'child_nav' => array(
+            'works' => array(
+              'label' => '製作実績を見る',
+              'url' => '#works', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'furniture',
+            ),
+            'contact' => array(
+              'label' => 'オーダー家具のご相談',
+              'url' => '#contact', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'furniture',
+            ),
+          ),
         ),
-        'category-2' => array(
-          'label' => '事例カテゴリ2',
-          'url' => '/works/category-2/', 'other_page' => true, 'outlink' => false,
-          'smooth' => false, 'belong' => 'company',
-          'img_src' => 'https://placehold.jp/32/4c5162/ffffff/320x180.png?text=dummy',
+        'school' => array(
+          'label' => 'こども園・学校関係',
+          'url' => LINK_SCHOOL, 'other_page' => true, 'outlink' => false,
+          'smooth' => false, 'belong' => '',
+          'img_src' => $themne_path.'/images/common/gnav_img-workshop-school.webp',
+          'child_nav' => array(
+            'education' => array(
+              'label' => '学校・園向け家具について',
+              'url' => '#education', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'school',
+            ),
+          ),
+        ),
+        'hiba' => array(
+          'label' => '檜葉加工事業',
+          'url' => LINK_HIBA, 'other_page' => true, 'outlink' => false,
+          'smooth' => false, 'belong' => '',
+          'img_src' => $themne_path.'/images/common/gnav_img-workshop-hiba.webp',
+          'child_nav' => array(
+            'message' => array(
+              'label' => '檜葉加工事業について',
+              'url' => '#message', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'school',
+            ),
+          ),
         ),
       ),
     ),
-    'company' => array(
-      'type' => 'comp',
-      'label-jp' => '会社概要', 'label-en' => 'COMPANY',
+    'mokumoku' => array(
+      'type' => 'page',
+      'label-jp' => 'モクモクセンター', 'label-en' => 'Mokumoku Center',
+      'desc' => '暮らしの道具や製品として<br>紹介している施設です。',
+      'header' => true, 'footer' => true,
+      'url' => LINK_MOKUMOKU, 'other_page' => true, 'outlink' => false, 'smooth' => false,
+      'img_src' => $themne_path.'/images/common/gnav_img-mokumoku.webp',
+      'sub_nav' => array(
+        'mokumoku_center' => array(
+          'label' => 'モクモクセンターについて',
+          'url' => LINK_MOKUMOKU, 'other_page' => true, 'outlink' => false,
+          'smooth' => false, 'belong' => '',
+          'img_src' => $themne_path.'/images/common/gnav_img-mokumoku_center.webp',
+          'child_nav' => array(
+            'products' => array(
+              'label' => 'おすすめ商品',
+              'url' => '#products', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'mokumoku',
+            ),
+            'info' => array(
+              'label' => '営業案内',
+              'url' => '#info', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'mokumoku',
+            ),
+          ),
+        ),
+        'experience' => array(
+          'label' => '体験プログラム',
+          'url' => LINK_EXPERIENCE, 'other_page' => true, 'outlink' => false,
+          'smooth' => false, 'belong' => '',
+          'img_src' => $themne_path.'/images/common/gnav_img-mokumoku-experience.webp',
+          'child_nav' => array(
+            'chop_stick' => array(
+              'label' => 'マイ箸づくり',
+              'url' => '#chop_stick', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'experience',
+            ),
+            'terrarium' => array(
+              'label' => '苔テラリウム',
+              'url' => '#terrarium', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'experience',
+            ),
+            'pendant' => array(
+              'label' => '檜のかけらペンダント',
+              'url' => '#pendant', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'experience',
+            ),
+            'fragrance' => array(
+              'label' => 'フレグランスづくり',
+              'url' => '#fragrance', 'other_page' => true, 'outlink' => false,
+              'smooth' => true, 'belong' => 'experience',
+            ),
+          ),
+        ),
+      ),
+    ),
+    'timber-market' => array(
+      'type' => 'page',
+      'label-jp' => '木材市況', 'label-en' => 'Timber Market',
       'desc' => false,
       'header' => true, 'footer' => true,
-      'url' => LINK_COMPANY, 'other_page' => true, 'outlink' => false, 'smooth' => false,
+      'url' => LINK_TIMBER_MARKET, 'other_page' => true, 'outlink' => false, 'smooth' => false,
       'img_src' => 'https://placehold.jp/32/4c5162/ffffff/320x180.png?text=dummy',
       'sub_nav' => '',
     ),
-    'blog' => array(
+    'recruit' => array(
       'type' => 'comp',
-      'label-jp' => 'ブログ', 'label-en' => 'BLOG',
+      'label-jp' => '採用情報', 'label-en' => 'Recruit',
       'desc' => false,
-      'header' => true, 'footer' => true,
-      'url' => LINK_BLOG, 'other_page' => true, 'outlink' => false, 'smooth' => false,
+      'header' => true, 'footer' => false,
+      'url' => LINK_RECRUIT, 'other_page' => true, 'outlink' => false, 'smooth' => false,
       'img_src' => 'https://placehold.jp/32/4c5162/ffffff/320x180.png?text=dummy',
       'sub_nav' => '',
     ),
@@ -89,35 +206,44 @@
       'type' => 'comp',
       'label-jp' => 'お知らせ', 'label-en' => 'NEWS',
       'desc' => false,
-      'header' => true, 'footer' => true,
+      'header' => false, 'footer' => false,
       'url' => LINK_NEWS, 'other_page' => true, 'outlink' => false, 'smooth' => false,
       'img_src' => 'https://placehold.jp/32/4c5162/ffffff/320x180.png?text=dummy',
       'sub_nav' => false,
+    ),
+    'contact' => array(
+      'type' => 'comp',
+      'label-jp' => 'お問い合わせ', 'label-en' => 'Contact',
+      'desc' => false,
+      'header' => true, 'footer' => false,
+      'url' => LINK_CONTACT, 'other_page' => true, 'outlink' => false, 'smooth' => false,
+      'img_src' => 'https://placehold.jp/32/4c5162/ffffff/320x180.png?text=dummy',
+      'sub_nav' => '',
     ),
   );
 
 /* head_btn_list
 *************************************************** */
   $head_btn_list = '';
-  $head_btn_list = array(
-    'contact' => array(
-      'ico' => 'mail', 'label-jp' => 'お問い合わせ', 'label-en' => 'CONTACT',
-      'url' => LINK_CONTACT, 'other_page' => true, 'outlink' => false, 'smooth' => false,
-      'clr' => 'wht', 'bg_clr' => 'main',
-    ),
-  );
+  // $head_btn_list = array(
+  //   'contact' => array(
+  //     'ico' => 'mail', 'label-jp' => 'お問い合わせ', 'label-en' => 'CONTACT',
+  //     'url' => LINK_CONTACT, 'other_page' => true, 'outlink' => false, 'smooth' => false,
+  //     'clr' => 'wht', 'bg_clr' => 'main',
+  //   ),
+  // );
 
 /* sub_list
 *************************************************** */
   $sub_list = array(
+    'news' => array(
+      'label' => 'お知らせ', 'fnt' => 'jp',
+      'url' => LINK_NEWS, 'other_page' => true, 'outlink' => false,
+      'smooth' => false, 'belong' => false,
+    ),
     'privacy' => array(
       'label' => 'プライバシーポリシー', 'fnt' => 'jp',
       'url' => LINK_PRIVACY, 'other_page' => true, 'outlink' => false,
-      'smooth' => false, 'belong' => false,
-    ),
-    'terms' => array(
-      'label' => 'ご利用規約', 'fnt' => 'jp',
-      'url' => '/terms/', 'other_page' => true, 'outlink' => false,
       'smooth' => false, 'belong' => false,
     ),
   );

@@ -13,8 +13,15 @@ if ( $args['target'] ) {
 ?>
 <div class="btn btn-def hov_area <?php echo $args['class']; ?>">
   <<?php echo $stt_tag; ?> class="btn--in flx flx-ctr por clr-<?php echo $args['txt_clr']; ?> hov-clr-<?php echo $args['txt_clr-hov']; ?>"<?php echo $target; ?>>
-    <span class="txt ts"><?php echo $args['label']; ?></span>
-    <span class="bg poa ts bg_clr-<?php echo $args['bg_clr']; ?> hov-bg_clr-<?php echo $args['bg_clr-bf']; ?>"></span>
+    <span class="ico_wrap bg_clr-<?php echo $args['main_clr']; ?> flx flx-ctr ts">
+      <?php if ( $args['target'] ): ?>
+        <span class="ico ico-outlink bdr_clr-wht-bf bdr_clr-wht-af"></span>
+      <?php else: ?>
+        <svg viewBox="<?php echo VB_ICO; ?>" class="svg_ico svg_ico-<?php echo $args['ico']; ?> clr-wht" width="10" height="10"><use xlink:href="#ico-<?php echo $args['ico']; ?>"></use></svg>
+      <?php endif ?>
+    </span>
+    <span class="txt ts fnt-serif w-sb ls-300"><?php echo $args['label']; ?></span>
+    <span class="bg poa poa-bf bdr_clr-<?php echo $args['main_clr']; ?>-bf poa-af bg_clr-<?php echo $args['bg_clr-hov']; ?>-af op0-af ts-bf ts-af"></span>
   </<?php echo $end_tag; ?>>
 </div>
 

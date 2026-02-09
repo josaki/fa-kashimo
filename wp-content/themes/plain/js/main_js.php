@@ -9,9 +9,18 @@
 <?php
 /* common
 *************************************************** */ ?>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
 <script src="<?php echo get_template_directory_uri(); ?><?php latest_cache('/js/body_min.js'); ?>" defer></script>
 <script src="<?php echo get_template_directory_uri(); ?><?php latest_cache('/js/common.js'); ?>" defer></script>
 
+<?php if ( is_home() || is_front_page() ): ?>
+  <script src="<?php echo get_template_directory_uri(); ?>/js/plugin/slick.min.js" defer></script>
+<?php endif; ?>
+
+<?php if ( is_home() || is_front_page() ): ?>
+  <script src="<?php echo get_template_directory_uri(); ?><?php latest_cache('/js/home.js'); ?>" defer></script>
+<?php endif; ?>
 <?php if ( is_page('contact') ): ?>
   <script src="<?php echo get_template_directory_uri(); ?>/js/plugin/ajaxzip3.js" defer></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/plugin/autoKana.js" defer></script>

@@ -307,15 +307,15 @@
 
 ############################################################################## */
   @media screen and (min-width: 769px) {
-    .header.slide_true .snav_list--item-parent {
+    .header.slide_true ~ .gnav .snav_list--item-parent {
       display: none;
     }
   }
   @media screen and (max-width: 768px) {
-    .header.slide_true .gnav_list-comp .gnav_list--item.has_sub .gnav_list--item_in {
+    .header.slide_true ~ .gnav .gnav_list-comp .gnav_list--item.has_sub .gnav_list--item_in {
       padding-right: 0;
     }
-    .header.slide_true .gnav_list-comp .gnav_list--item.has_sub .gnav_list--item_in .ico-arrow {
+    .header.slide_true ~ .gnav .gnav_list-comp .gnav_list--item.has_sub .gnav_list--item_in .ico-arrow {
       display: none;
     }
   }

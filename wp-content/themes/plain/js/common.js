@@ -82,7 +82,7 @@ $(function(){
   /* gnav_btnクリックでheaderにactive付与
   ********************************************** */
     $('.gnav_btn').on('click',function(){
-      $(this).closest('header').toggleClass('active');
+      $('.header').toggleClass('active');
     });
 
   /* tap_area functions
@@ -229,3 +229,188 @@ $(function(){
     //}
 
 })
+
+
+$(window).on('load',function(){
+
+  /* windowの高さでclass付与（段階式）
+  ********************************************** */
+    var heightClasses = [
+      { max: 560,  cls: 'is-h560' },
+      { max: 768,  cls: 'is-h768' },
+      { max: 900,  cls: 'is-h900' },
+      { max: 1024, cls: 'is-h1024' }
+    ];
+
+    function toggleClassByHeight() {
+      var h = $(window).height();
+
+      // まず全部消す
+      for (var i = 0; i < heightClasses.length; i++) {
+        $body.removeClass(heightClasses[i].cls);
+      }
+
+      // 条件に合うものを付与（複数付ける方式）
+      for (var i = 0; i < heightClasses.length; i++) {
+        if (h <= heightClasses[i].max) {
+          $body.addClass(heightClasses[i].cls);
+        }
+      }
+    }
+
+    toggleClassByHeight();
+
+    var timer = null;
+    $(window).on('resize', function () {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(toggleClassByHeight, 100);
+    });
+
+
+  /* scrollTrigger
+  ********************************************** */
+    let mm = gsap.matchMedia();
+
+    /* prlx
+    ********************************************** */
+      $prlx = $('.prlx');
+      if ( $prlx.length ) {
+        const prlxs = gsap.utils.toArray(".prlx");
+        console.log(prlxs);
+        prlxs.forEach((block) => {
+          const prlx_obj = block.querySelector(".prlx_obj");
+          gsap.fromTo(
+            prlx_obj,
+            {
+              yPercent: prlx_obj.dataset.stt,
+            },
+            {
+              yPercent: prlx_obj.dataset.end,
+              ease: "none",
+              scrollTrigger: {
+                trigger: prlx_obj,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 0.4,
+              },
+            }
+          );
+        });
+      }
+
+    /* gsap
+    ********************************************** */
+      function initSectionProgress(selector = '[data-gsap]', configure) {
+        var sections = document.querySelectorAll(selector);
+        sections.forEach(function(section){
+          // 累積表示
+          var showItems = Array.from(section.querySelectorAll('[data-show]')).map(function(el){
+            var th = Math.max(0, Math.min(1, parseFloat(el.getAttribute('data-show')) || 0));
+            return [el, th];
+          });
+
+          // 段階表示（グループごと）
+          var groups = {};
+          Array.from(section.querySelectorAll('[data-step][data-group]')).forEach(function(el){
+            var g  = el.getAttribute('data-group');
+            var th = Math.max(0, Math.min(1, parseFloat(el.getAttribute('data-step')) || 0));
+            (groups[g] || (groups[g] = [])).push({ el: el, th: th });
+          });
+          Object.keys(groups).forEach(function(k){
+            groups[k].sort(function(a,b){ return a.th - b.th; });
+          });
+
+          var prevShow = new WeakMap();
+          var prevStep = {};
+
+          var start = section.getAttribute('data-start') || 'top top';
+          var end   = section.getAttribute('data-end')   || '+=108%';
+          var pin   = section.hasAttribute('data-pin');
+          var scrubAttr = section.getAttribute('data-scrub');
+          var scrub = scrubAttr == null ? true : (scrubAttr === '' ? true : (parseFloat(scrubAttr) || true));
+
+          var tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: section,
+              start: start,
+              end: end,
+              scrub: scrub,
+              pin: pin,
+              anticipatePin: 1,
+              invalidateOnRefresh: true,
+
+              // 進行中の表示制御（あなたの既存ロジック）
+              onUpdate: function(self){
+                var p = self.progress;
+
+                // 累積表示
+                for (var i = 0; i < showItems.length; i++) {
+                  var el = showItems[i][0], th = showItems[i][1];
+                  var want = p >= th;
+                  if (prevShow.get(el) !== want) {
+                    el.classList.toggle('is-show', want);
+                    prevShow.set(el, want);
+                  }
+                }
+
+                // 段階表示：各groupで1つだけ表示
+                Object.keys(groups).forEach(function(g){
+                  var list = groups[g], idx = -1;
+                  for (var j = 0; j < list.length; j++) if (p >= list[j].th) idx = j;
+                  if (prevStep[g] === idx) return;
+                  for (var k = 0; k < list.length; k++) list[k].el.classList.toggle('is-show', k === idx);
+                  prevStep[g] = idx;
+                });
+              },
+
+              // ここから end 用のクラス制御
+              onLeave: function() {
+                // end を超えたら付与
+                section.classList.add('is-end');
+              },
+              onEnterBack: function() {
+                // end 側から戻ってきたら外す
+                section.classList.remove('is-end');
+              },
+              onRefresh: function(self) {
+                // リサイズ等の再計算後に状態を正す
+                section.classList.toggle('is-end', self.progress >= 1);
+              }
+            }
+          });
+
+          // セクション固有のTweenを追加したい時用のフック
+          if (typeof configure === 'function') {
+            configure(tl, section);
+          }
+        });
+      }
+
+      initSectionProgress('[data-gsap]', function(tl, section){
+      });
+
+    mm.add('(max-width: 1064px)', () => {
+    const targets = document.querySelectorAll('[data-gsap] [data-show], [data-gsap] [data-step]');
+    targets.forEach(el => el.classList.remove('no_trans'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-show');
+        io.unobserve(entry.target);
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px -20% 0px',
+      threshold: 0.15
+    });
+
+    targets.forEach(el => io.observe(el));
+    return () => {
+      io.disconnect();
+      targets.forEach(el => {
+        el.classList.remove('is-show');
+      });
+    };
+  });
+
+});

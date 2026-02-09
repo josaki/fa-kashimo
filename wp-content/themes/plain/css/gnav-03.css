@@ -412,30 +412,30 @@
 
 ############################################################################## */
   @media screen and (min-width: 769px) {
-    .header.slide_true .snav_list--item-parent {
+    .header.slide_true ~ .gnav .snav_list--item-parent {
       display: none;
     }
   }
   @media screen and (min-width: 561px) and (max-width: 768px) {
-    .header.slide_true .gnav_list--item_in .ico-arrow {
+    .header.slide_true ~ .gnav .gnav_list--item_in .ico-arrow {
       top: auto;
       top: inherit;
       bottom: .2em;
     }
-    .header.slide_true .gnav_list--item.has_sub .gnav_list--item_in {
+    .header.slide_true ~ .gnav .gnav_list--item.has_sub .gnav_list--item_in {
       padding-right: 0;
     }
   }
   @media screen and (max-width: 768px) {
-    .header.slide_true .gnav_list-comp .gnav_list--item.has_sub .gnav_list--item_in {
+    .header.slide_true ~ .gnav .gnav_list-comp .gnav_list--item.has_sub .gnav_list--item_in {
       padding-right: 0;
     }
-    .header.slide_true .gnav_list-comp .gnav_list--item.has_sub .gnav_list--item_in .ico-arrow {
+    .header.slide_true ~ .gnav .gnav_list-comp .gnav_list--item.has_sub .gnav_list--item_in .ico-arrow {
       display: none;
     }
   }
   @media screen and (max-width: 560px) {
-    .header.slide_true .gnav_list-page .gnav_list--item .gnav_list--item_in {
+    .header.slide_true ~ .gnav .gnav_list-page .gnav_list--item .gnav_list--item_in {
       padding-right: 24px;
     }
   }
@@ -446,18 +446,18 @@
 
 ############################################################################## */
   @media screen and (max-width: 768px) {
-    .header.acod_true .gnav_list-page .gnav_list--item.has_sub .acod_arrow {
+    .header.acod_true ~.gnav .gnav_list-page .gnav_list--item.has_sub .acod_arrow {
       top: calc(14vw + 27px);
     }
-    .header.acod_true .gnav_list--item.has_sub {
+    .header.acod_true ~.gnav .gnav_list--item.has_sub {
       padding-right: 0;
     }
   }
   @media screen and (max-width: 560px) {
-    .header.acod_true .gnav_list-page .gnav_list--item {
+    .header.acod_true ~.gnav .gnav_list-page .gnav_list--item {
       padding-right: 40px;
     }
-    .header.acod_true .gnav_list-page .gnav_list--item.has_sub .acod_arrow {
+    .header.acod_true ~.gnav .gnav_list-page .gnav_list--item.has_sub .acod_arrow {
       top: 27px;
     }
   }
